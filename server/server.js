@@ -18,13 +18,13 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://kaam-pe.vercel.app",
+    origin: "https://kaam-pe-git-main-tanmay-jhas-projects.vercel.app",
     credentials: true,
   })
 );
 
 app.options("*", cors({
-  origin: "https://kaam-pe.vercel.app",
+  origin: "https://kaam-pe-git-main-tanmay-jhas-projects.vercel.app",
   credentials: true,
 }));
 
