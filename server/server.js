@@ -16,16 +16,12 @@ connectCloudinary();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://kaam-pe-git-main-tanmay-jhas-projects.vercel.app",
-    credentials: true,
-  })
-);
-
+// allow ALL origins
+app.use(cors({
+  origin: "*",
+}));
 app.options("*", cors({
-  origin: "https://kaam-pe-git-main-tanmay-jhas-projects.vercel.app",
-  credentials: true,
+  origin: "*",
 }));
 
 // Stripe Webhooks
