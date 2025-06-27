@@ -15,16 +15,31 @@ connectDB();
 connectCloudinary();
 
 const app = express();
-app.use(cors()); // Enable Cross-Origin Resource Sharing
 
-// API to listen to Stripe Webhooks
-app.post("/api/stripe",express.raw({ type: "application/json" }),stripeWebhooks);
+app.use(
+  cors({
+    origin: "https://kaam-pe.vercel.app",
+    credentials: true,
+  })
+);
 
-// Middleware to parse JSON
+app.options("*", cors({
+  origin: "https://kaam-pe.vercel.app",
+  credentials: true,
+}));
+
+// Stripe Webhooks
+app.post(
+  "/api/stripe",
+  express.raw({ type: "application/json" }),
+  stripeWebhooks
+);
+
+// Middleware to parse JSON after Stripe raw body
 app.use(express.json());
 app.use(clerkMiddleware());
 
-// API to listen to Clerk Webhooks
+// Clerk Webhooks
 app.use("/api/clerk", clerkWebhooks);
 
 app.get("/", (req, res) => res.send("API is working"));
