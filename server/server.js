@@ -15,7 +15,13 @@ connectDB();
 connectCloudinary();
 
 const app = express();
-app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(
+  cors({
+    origin: "https://kaam-pe.vercel.app",
+    credentials: true,
+  })
+);
+
 
 // API to listen to Stripe Webhooks
 app.post("/api/stripe",express.raw({ type: "application/json" }),stripeWebhooks);
