@@ -11,7 +11,7 @@ import clerkWebhooks from "./controllers/clerkWebhooks.js";
 import connectCloudinary from "./configs/cloudinary.js";
 import { stripeWebhooks } from "./controllers/stripeWebhooks.js";
 
-// Connect to the database and Cloudinary
+// Connect to the database and Cloudinary hi
 connectDB();
 connectCloudinary();
 
