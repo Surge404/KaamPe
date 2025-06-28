@@ -17,11 +17,11 @@ connectCloudinary();
 
 const app = express();
 
-// Configure CORS to allow requests specifically from your frontend application's actual origin
-// The origin 'https://kaam-k4bx60bdw-tanmay-jhas-projects.vercel.app' was reported in your error message.
+// Configure CORS to allow requests specifically from your frontend application's current origin.
+// The origin 'https://kaam-pe.vercel.app' is the one your frontend is currently using.
 app.use(
   cors({
-    origin: "https://kaam-k4bx60bdw-tanmay-jhas-projects.vercel.app", // <--- THIS LINE IS UPDATED
+    origin: "https://kaam-pe.vercel.app", // <--- THIS LINE IS UPDATED to match your current frontend origin
     credentials: true,
   })
 );
